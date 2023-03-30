@@ -61,6 +61,23 @@ const clearItem = () => {
   checkUI();
 };
 
+// Filter items
+const itemsFilter = (e) => {
+  const items = itemList.querySelectorAll('li');
+  const text = e.target.value.toLowerCase();
+
+  items.forEach((item) => {
+    const itemName = item.firstChild.textContent.toLowerCase();
+    if (itemName.indexOf(text) != -1) {
+      item.style.display = 'flex';
+      // console.log(true);
+    } else {
+      item.style.display = 'none';
+      // console.log(false);
+    }
+  });
+};
+
 // Function for checking dom elements
 const checkUI = () => {
   const items = itemList.querySelectorAll('li');
@@ -74,8 +91,10 @@ const checkUI = () => {
 };
 
 // Event Listener
+
 itemForm.addEventListener('submit', addItem);
 itemList.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearItem);
+itemFilter.addEventListener('input', itemsFilter);
 
 checkUI();
