@@ -119,6 +119,10 @@ header h1 {
   font-weight: 700;
 }
 
+.items .edit-mode {
+  color: #f2e012;
+  background-color: #333;
+}
 @media (max-width: 500px) {
   .items li {
     width: 100%;
